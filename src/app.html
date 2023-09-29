@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="msapplication-TileColor" content="#000000" />
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-preload-data="hover">
+	<body class="bg-white text-black antialiased dark:bg-gray-900 dark:text-white">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

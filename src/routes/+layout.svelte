@@ -1,21 +1,24 @@
 <script lang="ts">
+	import '../app.css';
 	import { page } from '$app/stores';
 </script>
 
-<header>
-	<a href="/"><h1 class:small={$page.url.pathname !== '/'}>SvelteKit + MDsveX Blog</h1></a>
-</header>
+<div class="scroll-smooth dark">
+	<header>
+		<a href="/"><h1 class:small={$page.url.pathname !== '/'}>SvelteKit + MDsveX Blog</h1></a>
+	</header>
 
-<main>
-	<slot />
-</main>
+	<main>
+		<slot />
+	</main>
 
-<footer>
-	<p>
-		Copyright &#169; <a href="https://twitter.com/mehdi_vasigh">Mehdi Vasigh</a>, {new Date().getFullYear()}
-	</p>
-</footer>
-
+	<footer>
+		<p>
+			Copyright &#169; <a href="https://twitter.com/mehdi_vasigh">Mehdi Vasigh</a>, {new Date().getFullYear()}
+		</p>
+	</footer>
+</div>
+<!-- 
 <style>
 	:global(:root) {
 		--spacing-unit: 4px;
@@ -56,4 +59,4 @@
 	footer {
 		margin-top: calc(var(--spacing-unit) * 8);
 	}
-</style>
+</style> -->
