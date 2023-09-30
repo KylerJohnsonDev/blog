@@ -21,5 +21,7 @@ export const load: PageServerLoad = async ({ url }) => {
 
 	publishedPosts.sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1));
 
+	console.log(publishedPosts);
+
 	return { posts: publishedPosts };
 };
