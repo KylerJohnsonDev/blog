@@ -3,7 +3,7 @@
 	import { page } from '$app/stores';
 </script>
 
-<div class="scroll-smooth dark">
+<div class="scroll-smooth dark mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
 	<header>
 		<a href="/"><h1 class:small={$page.url.pathname !== '/'}>SvelteKit + MDsveX Blog</h1></a>
 	</header>
