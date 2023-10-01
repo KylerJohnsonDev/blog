@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { siteMetadata } from '$lib/siteMetaData';
 	import { formatDate } from '$lib/utils/formatDate';
+	import Tag from './tag.svelte';
 
 	export let posts: App.BlogPost[];
-	export let max_display: number = 5;
+	export let hasMorePosts = true;
 </script>
 
 <div class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -39,11 +40,11 @@
 											{post.title}
 										</a>
 									</h2>
-									<!-- <div class="flex flex-wrap">
-                        {tags.map((tag) => (
-                          <Tag key={tag} text={tag} />
-                        ))}
-                      </div> -->
+									<div class="flex flex-wrap">
+										{#each post.tags as tag}
+											<Tag {tag} />
+										{/each}
+									</div>
 								</div>
 								<div class="prose max-w-none text-gray-500 dark:text-gray-400">
 									{post.description}
@@ -66,7 +67,7 @@
 	</ul>
 </div>
 
-{#if posts.length > max_display}
+{#if hasMorePosts}
 	<div class="flex justify-end text-base font-medium leading-6">
 		<a
 			href="/blog"

@@ -4,6 +4,7 @@ description: "I know, by now you've probably had enough, but this template looks
 author: 'Mehdi Vasigh'
 date: '2021-05-05'
 published: true
+tags: []
 ---
 
 <script>

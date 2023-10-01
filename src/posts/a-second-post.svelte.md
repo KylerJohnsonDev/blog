@@ -4,6 +4,7 @@ description: "The first blog post wasn't enough; I had to come back and write mo
 author: 'Mehdi Vasigh'
 date: '2021-05-03'
 published: true
+tags: ['test', 'counter']
 ---
 
 <script>
