@@ -1,62 +1,47 @@
 <script lang="ts">
 	import '../app.css';
-	import { page } from '$app/stores';
+	import { siteMetadata } from '$lib/siteMetaData';
+	import headerNavLinks from '$lib/headerNavLinks';
+	import Logo from '$lib/components/Logo.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import ThemeSwitch from '$lib/components/ThemeSwitch.svelte';
+	import MobileNav from '$lib/components/MobileNav.svelte';
 </script>
 
-<div class="scroll-smooth dark mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
-	<header>
-		<a href="/"><h1 class:small={$page.url.pathname !== '/'}>SvelteKit + MDsveX Blog</h1></a>
-	</header>
-
-	<main>
-		<slot />
-	</main>
-
-	<footer>
-		<p>
-			Copyright &#169; <a href="https://twitter.com/mehdi_vasigh">Mehdi Vasigh</a>, {new Date().getFullYear()}
-		</p>
-	</footer>
+<div class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+	<div class="flex h-screen flex-col justify-between">
+		<header class="flex items-center justify-between py-10">
+			<div>
+				<a href="/" aria-label={siteMetadata.headerTitle}>
+					<div class="flex items-center justify-between">
+						<div class="mr-3">
+							<Logo />
+						</div>
+						{#if typeof siteMetadata.headerTitle === 'string'}
+							<div class="hidden h-6 text-2xl font-semibold sm:block">
+								{siteMetadata.headerTitle}
+							</div>
+						{:else}
+							siteMetadata.headerTitle
+						{/if}
+					</div>
+				</a>
+			</div>
+			<div class="flex items-center text-base leading-5">
+				<div class="hidden sm:block">
+					{#each headerNavLinks as link}
+						<a href={link.href} class="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4">
+							{link.title}
+						</a>
+					{/each}
+				</div>
+				<ThemeSwitch />
+				<MobileNav />
+			</div>
+		</header>
+		<main class="mb-auto">
+			<slot />
+		</main>
+		<Footer />
+	</div>
 </div>
-<!-- 
-<style>
-	:global(:root) {
-		--spacing-unit: 4px;
-		--color-background: #e5e5e5;
-		--color-text-primary: #212121;
-		--color-text-secondary: #5a5a5a;
-	}
-
-	:global(body) {
-		margin: 0 auto;
-		max-width: 75ch;
-		padding: calc(var(--spacing-unit) * 8);
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-			'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-
-		background-color: var(--color-background);
-		color: var(--color-text-primary);
-		line-height: 1.51;
-		font-size: 18px;
-	}
-
-	:global(a, a:visited, a:active) {
-		text-decoration: none;
-		color: var(--color-text-primary);
-		font-weight: 700;
-	}
-
-	:global(a:hover) {
-		text-decoration: underline;
-	}
-
-	.small {
-		font-size: 1.6rem;
-	}
-
-	footer {
-		margin-top: calc(var(--spacing-unit) * 8);
-	}
-</style> -->
