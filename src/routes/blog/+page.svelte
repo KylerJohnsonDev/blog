@@ -5,6 +5,15 @@
 
     let searchValue = ''
     export let data: PageData;
+
+    $: filteredBlogPosts = data.posts.filter((post) => {
+        const searchContent = post.title + post.description + post.tags.join(' ')
+        return searchContent.toLowerCase().includes(searchValue.toLowerCase())
+    })
+
+    // If initialDisplayPosts exist, display it if no searchValue is specified
+    $: displayedPosts =
+        data.posts.length > 0 && !searchValue ? data.posts : filteredBlogPosts
 </script>
 
 <div class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -37,11 +46,11 @@
         </div>
     </div>
     <ul>
-        {#if !data.posts.length}
+        {#if !filteredBlogPosts.length}
             No posts found.
         {:else }
 
-            {#each data.posts as post}
+            {#each displayedPosts as post}
                 <li class="py-4">
                     <article class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                         <dl>
