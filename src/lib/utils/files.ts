@@ -14,6 +14,6 @@ export async function getFiles(): Promise<App.BlogPost[]> {
 	);
 
 	return Promise.all(postPromises);
-	// const posts = await Promise.all(postPromises);
-	// return posts;
+	// const blog = await Promise.all(postPromises);
+	// return blog;
 }
