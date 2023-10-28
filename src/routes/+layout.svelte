@@ -6,9 +6,10 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import ThemeSwitch from '$lib/components/ThemeSwitch.svelte';
 	import MobileNav from '$lib/components/MobileNav.svelte';
+	import SectionContainer from "$lib/components/SectionContainer.svelte";
 </script>
 
-<div class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+<SectionContainer>
 	<div class="flex h-screen flex-col justify-between">
 		<header class="flex items-center justify-between py-10">
 			<div>
@@ -44,4 +45,4 @@
 		</main>
 		<Footer />
 	</div>
-</div>
+</SectionContainer>

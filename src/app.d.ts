@@ -14,13 +14,5 @@ declare namespace App {
 
 	type MdsvexResolver = () => Promise<MdsvexFile>;
 
-	interface BlogPost {
-		slug: string;
-		title: string;
-		author: string;
-		description: string;
-		date: string;
-		published: boolean;
-		tags: string[];
-	}
+
 }

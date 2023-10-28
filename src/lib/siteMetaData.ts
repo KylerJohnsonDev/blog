@@ -9,7 +9,7 @@ export const siteMetadata = {
 	siteUrl: 'https://kylerjohnson.dev',
 	siteRepo: '',
 	siteLogo: '/static/images/logo.png',
-	image: '/static/images/my_avatar.jpg',
+	image: '/kyler_johnson.jpg',
 	socialBanner: '/static/images/social_banner.png',
 	email: 'kylerjohnsondev@gmail.com',
 	github: 'https://github.com/kylerjohnsondev',
