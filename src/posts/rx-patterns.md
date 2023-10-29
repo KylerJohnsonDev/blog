@@ -1,6 +1,6 @@
 ---
 title: Basic Reactive Patterns in Angular
-date: '2020-05-14T22:12:03.284Z'
+date: '2020-05-14'
 description: 'Examples and explanations of basic reactive patterns with RxJS'
 published: true
 tags: ['angular', 'rxjs']

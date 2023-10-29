@@ -1,6 +1,6 @@
 ---
 title: Drag & Drop w/ Angular Material/CDK
-date: '2019-02-07T22:12:03.284Z'
+date: '2019-02-07'
 description: 'Leverage Angular Material CDK to implement the drag & drop feature in your Angular app.'
 published: true
 tags: ['angular']

@@ -2,7 +2,7 @@
 title: A Practical Approach to Angular Attribute Directives
 imageUrl: '/static/roadsigns.webp'
 imageAlt: 'Road Signs'
-date: '2019-03-03T22:12:03.284Z'
+date: '2019-03-03'
 description: 'Learn what attribute directives are and how you can use them'
 published: true
 tags: ['angular']

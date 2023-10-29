@@ -1,6 +1,6 @@
 ---
 title: Supercharge TS development with prettier and ESLint
-date: '2023-01-07T22:12:03.284Z'
+date: '2023-01-07'
 description: 'Learn how to set VS Code up to leverage prettier and ESLint to autoformat TypeScript code, auto-fix "fixable" problems, and auto-organize imports on file save.'
 published: true
 tags: ['VS Code', 'TypeScript', 'Prettier', 'ESLint']

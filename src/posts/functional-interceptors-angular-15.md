@@ -1,6 +1,6 @@
 ---
 title: 'Functional Interceptors in Angular 15'
-date: '2022-11-16T13:43:04.129Z'
+date: '2022-11-16'
 description: 'Angular v15 brings with it a new, functional way to write interceptors and register them in your standalone Angular application. This brief article shows you how.'
 published: true
 tags: ['angular']

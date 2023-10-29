@@ -1,6 +1,6 @@
 ---
 title: Build your Angular App Once, Deploy Anywhere
-date: '2020-09-17T22:12:03.284Z'
+date: '2020-09-17'
 description: "Want to build your Angular app once and deploy anywhere? Learn why compile-time configuration isn't enough and how we can load configuration at run-time."
 published: true
 tags: ['Angular']

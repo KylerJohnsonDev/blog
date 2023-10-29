@@ -2,7 +2,7 @@
 title: Why & How to Lazy Load in Angular
 imageUrl: '/static/tiger.webp'
 imageAlt: 'Lazy Tiger'
-date: '2019-02-10T22:12:03.284Z'
+date: '2019-02-10'
 description: 'From why we need it to how we do it - Lazy Loading in Angular 8+'
 published: true
 tags: ['Angular']
