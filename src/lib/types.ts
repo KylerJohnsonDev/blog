@@ -8,6 +8,9 @@ export interface BlogPost {
     date: string;
     published: boolean;
     tags: string[];
+    image: string | undefined;
+    imageAlt: string | undefined;
+    canonicalUrl: string | undefined;
 }
 
 export interface BlogPostLayoutData {
