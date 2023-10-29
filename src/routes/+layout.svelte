@@ -23,7 +23,7 @@
 								{siteMetadata.headerTitle}
 							</div>
 						{:else}
-							siteMetadata.headerTitle
+							{siteMetadata.headerTitle}
 						{/if}
 					</div>
 				</a>
