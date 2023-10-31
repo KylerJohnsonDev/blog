@@ -6,7 +6,6 @@ const MAX_POSTS = 5;
 
 export const load: PageServerLoad = async (data) => {
     const { url } = data;
-    console.log(data)
     const posts = await getFiles();
     const publishedPosts = posts.filter((post) => post.published)
         .sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1))
@@ -16,7 +15,8 @@ export const load: PageServerLoad = async (data) => {
     const currentPage = pageParam ? Number(pageParam) : 1
     let displayedPosts: BlogPost[];
     if(currentPage > 1) {
-        const startIndex = currentPage * MAX_POSTS;
+        const prevPage = currentPage - 1;
+        const startIndex = prevPage * MAX_POSTS + 1;
         const endIndex = startIndex + MAX_POSTS;
         displayedPosts = publishedPosts.slice(startIndex, endIndex);
     } else {
