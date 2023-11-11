@@ -4,10 +4,18 @@
 
 	const socialIcons = [
 		{
-			size: 6,
+			fontSizeClass: 'text-3xl',
 			linkUrl: siteMetadata.github,
-			pathToImage: `/contact/github.svg?raw`,
-			altText: 'GitHub Logo'
+			iconifyIconName: 'mdi:github'
+		}, {
+			fontSizeClass: 'text-3xl',
+			linkUrl: siteMetadata.linkedin,
+			iconifyIconName: 'mdi:linkedin'
+		}
+		, {
+			fontSizeClass: 'text-3xl',
+			linkUrl: siteMetadata.twitter,
+			iconifyIconName: 'mdi:twitter'
 		}
 	];
 </script>

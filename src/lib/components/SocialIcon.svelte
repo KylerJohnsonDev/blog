@@ -1,8 +1,10 @@
 <script lang="ts">
-	export let size: number;
+	import IconifyIcon from '@iconify/svelte';
+
+	export let iconifyIconName: string;
+	export let fontSizeClass: string;
 	export let linkUrl: string;
-	export let pathToImage: string;
-	export let altText: string;
+
 </script>
 
 <a
@@ -11,9 +13,5 @@
 	rel="noopener noreferrer"
 	href={linkUrl}
 >
-	<img
-		src={pathToImage}
-		alt={altText}
-		class={`fill-current text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 h-${size} w-${size}`}
-	/>
+	<IconifyIcon icon={iconifyIconName} class={`fill-current stroke-gray-500 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 ${fontSizeClass}`}/>
 </a>
