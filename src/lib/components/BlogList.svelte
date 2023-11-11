@@ -2,9 +2,10 @@
 	import { siteMetadata } from '$lib/siteMetaData';
 	import { formatDate } from '$lib/utils/formatDate';
 	import Tag from './tag.svelte';
+	import type {BlogPost} from "$lib/types";
 
-	export let posts: App.BlogPost[];
-	export let hasMorePosts = true;
+	export let posts: BlogPost[];
+	export let hasMorePosts: boolean;
 </script>
 
 <div class="divide-y divide-gray-200 dark:divide-gray-700">
