@@ -19,3 +19,12 @@ export interface BlogPostLayoutData {
     next: BlogPost | undefined;
     hasMorePosts: boolean;
 }
+
+export interface PaginationInformation {
+    currentPage: number;
+    totalPages: number;
+    hasPrevPage: boolean;
+    prevPageUri: string;
+    hasNextPage: boolean;
+    nextPageUri: string;
+}

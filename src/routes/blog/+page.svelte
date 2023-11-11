@@ -2,6 +2,7 @@
     import {formatDate} from "$lib/utils/formatDate";
     import Tag from "$lib/components/tag.svelte";
     import type { PageData } from './$types';
+    import Paginator from "$lib/components/Paginator.svelte";
 
     let searchValue = ''
     export let data: PageData;
@@ -79,6 +80,8 @@
                     </article>
                 </li>
             {/each}
+
+            <Paginator { ...data.paginationInformation } />
 
         { /if }
     </ul>
