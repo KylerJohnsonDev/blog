@@ -1,20 +1,20 @@
 <script lang="ts">
-    import {formatDate} from "$lib/utils/formatDate";
-    import Tag from "$lib/components/Tag.svelte";
-    import type { PageData } from './$types';
-    import Paginator from "$lib/components/Paginator.svelte";
+import {formatDate} from "$lib/utils/formatDate";
+import Tag from "$lib/components/Tag.svelte";
+import type { PageData } from './$types';
+import Paginator from "$lib/components/Paginator.svelte";
 
-    let searchValue = ''
-    export let data: PageData;
+let searchValue = ''
+export let data: PageData;
 
-    $: filteredBlogPosts = data.posts.filter((post) => {
-        const searchContent = post.title + post.description + post.tags.join(' ')
-        return searchContent.toLowerCase().includes(searchValue.toLowerCase())
-    })
+$: filteredBlogPosts = data.posts.filter((post) => {
+    const searchContent = post.title + post.description + post.tags.join(' ')
+    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
+})
 
-    // If initialDisplayPosts exist, display it if no searchValue is specified
-    $: displayedPosts =
-        data.posts.length > 0 && !searchValue ? data.posts : filteredBlogPosts
+// If initialDisplayPosts exist, display it if no searchValue is specified
+$: displayedPosts =
+    data.posts.length > 0 && !searchValue ? data.posts : filteredBlogPosts
 </script>
 
 <div class="divide-y divide-gray-200 dark:divide-gray-700">

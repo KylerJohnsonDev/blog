@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { siteMetadata } from '$lib/siteMetaData';
 	import { formatDate } from '$lib/utils/formatDate';
-	import Tag from './tag.svelte';
+	import Tag from './Tag.svelte';
 	import type {BlogPost} from "$lib/types";
 
 	export let posts: BlogPost[];

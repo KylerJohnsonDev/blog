@@ -1,6 +1,6 @@
 <script lang="ts">
     import SectionContainer from "$lib/components/SectionContainer.svelte";
-    import Tag from "$lib/components/tag.svelte";
+    import Tag from "$lib/components/Tag.svelte";
     import PageTitle from "$lib/components/PageTitle.svelte";
     import {siteMetadata} from "$lib/siteMetaData.js";
     import type {BlogPostLayoutData} from "$lib/types";
