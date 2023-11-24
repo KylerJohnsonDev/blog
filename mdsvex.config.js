@@ -29,7 +29,10 @@ const config = defineConfig({
 				behavior: 'wrap'
 			}
 		]
-	]
+	],
+	highlight: {
+
+	}
 });
 
 export default config;
