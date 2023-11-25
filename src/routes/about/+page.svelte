@@ -28,8 +28,16 @@
             </div>
             <div class="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">
                 <p>
-                    Kyler Johnson is a Software Craftsman specializing in Nx, Angular, Node.js, and .NET technologies. Currently working as a Senior Principal Engineer, he has years of experience building and maintaining enterprise-scale SaaS products.
+                    Hello there! I am Kyler Johnson, a former senior back-end .NET developer currently focused on front-end development, specializing in Angular, Sveltekit, and Next.js/React. Currently working as a Senior Principal UI Engineer, I have years of experience across the stack building and maintaining scalable, event-driven SaaS products at an enterprise scale.
                 </p>
+
+                <p>
+                    I absolutely love what I do and I am enthralled by the challenges of solving real-world problems with technology. Seeing myself as a Software Craftsman, I have an insatiable appetite for learning and I am always looking for ways to improve my craft and share my knowledge.
+                </p>
+
+<!--                <p>-->
+<!--                    I subscribe to the idea that there is much more to being a good developer than just writing code and deep technical knowledge. Keeping the "big picture" in focus, taking ownership, communicating effectively, and being a team player are all just as important.-->
+<!--                </p>-->
             </div>
         </div>
     </div>
