@@ -2,6 +2,7 @@ export const siteMetadata = {
 	title: 'Blog - Kyler Johnson',
 	author: 'Kyler Johnson',
 	headerTitle: 'Kyler Johnson',
+	image: '',
 	description:
 		'A blog for developers interested in web technologies, the web platform, and navigating their careers as developers.',
 	language: 'en-us',

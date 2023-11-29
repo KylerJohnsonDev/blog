@@ -10,7 +10,7 @@ tags: ['angular', 'rxjs']
 
 In a SaaS product I work on, we allow users to perform actions on a large data set. Naturally, such processing can sometimes take a while and we do not want our users held up by a long-running request. So, I send a request with a filter object denoting which items in the data set should be processed, a job gets created, and a `jobId` is returned. I use that `jobId` to poll an endpoint every few seconds to get the status of the job. If the job status is "pending" or "in_progress", I continue polling. If it fails, I stop polling and display an error message. If it completes successfully, I show a quick "snackbar" message to the user that the job has completed.
 
-### The usage
+### The Usage
 
 I am a big fan of [NgRx Component Store](https://ngrx.io/guide/component-store) and use it extensively in my projects. In the example below, you can see I consume the custom `pollUntil` operator just like any other "pipeable" RxJS operator.
 
@@ -53,14 +53,14 @@ The `first` RxJS operator emits only the first value that meets the condition sp
 ```typescript
 export function pollUntilPredicateHandler(response: PollingOperationResponseData): boolean {
   if (response.status === AsyncJobState.completed) {
-    return true
+    return true // success - stop polling
   }
 
   if (response.status === AsyncJobState.failed) {
-    throw new Error($localize`Job failed.`)
+    throw new Error($localize`Job failed.`) // error - stop polling
   }
 
-  return false
+  return false // continue polling
 }
 ```
 

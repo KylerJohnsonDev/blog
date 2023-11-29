@@ -26,13 +26,11 @@ const config = defineConfig({
 		[
 			rehypeAutolinkHeadings,
 			{
-				behavior: 'wrap'
+				behavior: 'after',
 			}
 		]
 	],
-	highlight: {
-
-	}
+	highlight: {},
 });
 
 export default config;

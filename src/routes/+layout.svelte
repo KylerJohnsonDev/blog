@@ -1,3 +1,8 @@
+
+<script context="module">
+	import CodeBlock from "$lib/components/CodeBlock.svelte";
+	export { CodeBlock as pre };
+</script>
 <script lang="ts">
 	import '../app.css';
 	import { siteMetadata } from '$lib/siteMetaData';

@@ -7,6 +7,7 @@ tags: ['Angular']
 canonicalUrl: https://indepth.dev/posts/1338/build-your-angular-app-once-deploy-anywhere
 ---
 
+
 ![Worker with Toolbox](/static/images/build-once-deploy-anywhere/header-image.webp)
 
 Originally posted on InDepth Dev [here](https://indepth.dev/posts/1338/build-your-angular-app-once-deploy-anywhere). Header image by InDepth Dev.

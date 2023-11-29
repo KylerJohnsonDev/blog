@@ -1,9 +1,15 @@
+<script context="module">
+    import CodeBlock from "$lib/components/CodeBlock.svelte";
+    export { CodeBlock as pre };
+</script>
+
 <script lang="ts">
     import SectionContainer from "$lib/components/SectionContainer.svelte";
     import Tag from "$lib/components/Tag.svelte";
     import PageTitle from "$lib/components/PageTitle.svelte";
     import {siteMetadata} from "$lib/siteMetaData.js";
     import type {BlogPostLayoutData} from "$lib/types";
+    import portrait from '$lib/assets/kyler_johnson.jpg';
 
 
     const postDateTemplate: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
@@ -40,13 +46,13 @@
                     <dt class="sr-only">Author</dt>
                     <dd>
                         <div class="flex items-center space-x-2">
-                            {#if siteMetadata.image}
+                            {#if portrait}
                                 <img
-                                        src={siteMetadata.image}
-                                        width="38px"
-                                        height="38px"
-                                        alt="Kyler Johnson's Avatar"
-                                        class="h-10 w-10 rounded-full"
+                                    src={portrait}
+                                    width="38px"
+                                    height="38px"
+                                    alt="Kyler Johnson's Avatar"
+                                    class="h-10 w-10 rounded-full"
                                 />
                             {/if}
                             <dl class="whitespace-nowrap text-sm font-medium leading-5">
@@ -56,8 +62,8 @@
                                 <dd>
                                     {#if siteMetadata.twitter}
                                         <a
-                                                href={siteMetadata.twitter}
-                                                class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                                            href={siteMetadata.twitter}
+                                            class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                                         >
                                             {siteMetadata.twitter.replace('https://twitter.com/', '@')}
                                         </a>
