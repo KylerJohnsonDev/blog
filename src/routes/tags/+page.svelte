@@ -2,9 +2,12 @@
     import type { PageData } from './$types';
     import Tag from "$lib/components/Tag.svelte";
     import kebabCase from "$lib/utils/kebabCase.js";
+    import PageHead from "$lib/components/PageHead.svelte";
 
     export let data: PageData;
 </script>
+
+<PageHead title="Kyler Johnson | Tags" description="Categories I blog about" />
 
 <div class="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
     <div class="space-x-2 pt-6 pb-8 md:space-y-5">

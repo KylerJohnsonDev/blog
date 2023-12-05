@@ -3,6 +3,7 @@ import {formatDate} from "$lib/utils/formatDate";
 import Tag from "$lib/components/Tag.svelte";
 import type { PageData } from './$types';
 import Paginator from "$lib/components/Paginator.svelte";
+import PageHead from "$lib/components/PageHead.svelte";
 
 let searchValue = ''
 export let data: PageData;
@@ -16,6 +17,8 @@ $: filteredBlogPosts = data.posts.filter((post) => {
 $: displayedPosts =
     data.posts.length > 0 && !searchValue ? data.posts : filteredBlogPosts
 </script>
+
+<PageHead title="Kyler Johnson | Tags" description="Categories I blog about" />
 
 <div class="divide-y divide-gray-200 dark:divide-gray-700">
     <div class="space-y-2 pt-6 pb-8 md:space-y-5">

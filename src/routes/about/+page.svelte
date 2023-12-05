@@ -1,7 +1,10 @@
 <script>
     import portrait from '$lib/assets/kyler_johnson.jpg';
+    import PageHead from "$lib/components/PageHead.svelte";
 
 </script>
+
+<PageHead title="Kyler Johnson | About" description="A Sr. Principal UI Engineer focused on Angular, Sveltekit, and Next.js/React" />
 
 <main class="mb-auto">
     <div class="divide-y divide-gray-200 dark:divide-gray-700">

@@ -6,6 +6,6 @@
 	export let data: PageData;
 </script>
 
-<PageHead title="Home" description="An awesome blog about development with Svelte" />
+<PageHead title="Kyler Johnson" description="Sr. Principal Software Engineer" />
 
 <BlogList posts={data.posts} hasMorePosts={data.hasMorePosts} />
