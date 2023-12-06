@@ -1,0 +1,75 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "/_app/immutable/.+",
+			"headers": {
+				"cache-control": "public, immutable, max-age=31536000"
+			}
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/?$",
+			"dest": "/__root__?__pathname=/"
+		},
+		{
+			"src": "^/?/__data.json$",
+			"dest": "/__root__/__data.json?__pathname=/"
+		},
+		{
+			"src": "^/about/?$",
+			"dest": "/about?__pathname=/about"
+		},
+		{
+			"src": "^/about/?/__data.json$",
+			"dest": "/about/__data.json?__pathname=/about"
+		},
+		{
+			"src": "^/blog/?$",
+			"dest": "/blog?__pathname=/blog"
+		},
+		{
+			"src": "^/blog/?/__data.json$",
+			"dest": "/blog/__data.json?__pathname=/blog"
+		},
+		{
+			"src": "^/blog/([^/]+?)/?$",
+			"dest": "/blog/[slug]?__pathname=/blog/$1"
+		},
+		{
+			"src": "^/blog/([^/]+?)/?/__data.json$",
+			"dest": "/blog/[slug]/__data.json?__pathname=/blog/$1"
+		},
+		{
+			"src": "^/projects/?$",
+			"dest": "/projects?__pathname=/projects"
+		},
+		{
+			"src": "^/projects/?/__data.json$",
+			"dest": "/projects/__data.json?__pathname=/projects"
+		},
+		{
+			"src": "^/tags/?$",
+			"dest": "/tags?__pathname=/tags"
+		},
+		{
+			"src": "^/tags/?/__data.json$",
+			"dest": "/tags/__data.json?__pathname=/tags"
+		},
+		{
+			"src": "^/tags/([^/]+?)/?$",
+			"dest": "/tags/[tag]?__pathname=/tags/$1"
+		},
+		{
+			"src": "^/tags/([^/]+?)/?/__data.json$",
+			"dest": "/tags/[tag]/__data.json?__pathname=/tags/$1"
+		},
+		{
+			"src": "/.*",
+			"dest": "/fn"
+		}
+	],
+	"overrides": {}
+}
