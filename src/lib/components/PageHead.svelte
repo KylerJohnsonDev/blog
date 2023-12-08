@@ -4,7 +4,7 @@
 
 	export let title: string;
 	export let description: string;
-	export let image = encodeURI("%sveltekit.assets%/kyler_johnson_dev.png");
+	export let image = `${$page.url.origin}/kyler_johnson_dev.png`
 	export let imageAlt = 'Open Graph image that introduces Kyler Johnson, a Sr. Principal Software Engineer';
 	export let canonicalUrl = $page.url.href;
 	export let ogType: 'website' | 'article' = 'website'
