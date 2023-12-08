@@ -1,14 +1,14 @@
 ---
 title: Why & How to Lazy Load in Angular
-imageUrl: '/static/tiger.webp'
-imageAlt: 'Lazy Tiger'
+image: '/post_images/angular-lazy-loading/tiger.webp'
+imageAlt: 'Image of a lazy tiger'
 date: '2019-02-10'
 description: 'From why we need it to how we do it - Lazy Loading in Angular 8+'
 published: true
 tags: ['Angular']
 ---
 
-![Lazy Tiger](/static/images/lazy-loading/tiger.webp)
+![Lazy Tiger](/post_images/angular-lazy-loading/tiger.webp)
 
 ```
 Angular version: 8.x
@@ -56,28 +56,28 @@ src/
 Next, let’s take a look at the app.module.ts file to find out how our components are loaded. By convention, the core module is imported into the root module, but as we can see in the gist below, the `ProfileModule` and the `ProductModule` are, too, which means that they will all be loaded when the app initializes. In other words, they are all eager loaded — the opposite of lazy loaded.
 
 ```typescript
-import { BrowserModule } from '@angular/platform-browser'
-import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component'
-import { CoreModule } from './core/core.module'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { ProfileModule } from './profile/profile.module'
-import { ProductModule } from './product/product.module'
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileModule } from './profile/profile.module';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CoreModule,
-    ProfileModule,
-    ProductModule,
-    BrowserAnimationsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+	declarations: [AppComponent],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		CoreModule,
+		ProfileModule,
+		ProductModule,
+		BrowserAnimationsModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule {}
 ```
@@ -88,26 +88,26 @@ Let’s also take a look at the app-routing.module.ts file so that we understand
 
 Now, if we checkout the `feature/lazy_loaded branch`, run it, open the network tab of the Chrome Dev Tools, and refresh the page we will see the same number of requests to load the page. Because the product module is lazy loaded, we can observe in the GIF below that the product-product-module.js packet is loaded in response to another request when we navigate to the products page. The same occurs when navigating to the profile page.
 
-![Snapshot of Dev tools loading a module](/static/images/lazy-loading/lazy-loaded-module-in-dev-tools.gif)
+![Snapshot of Dev tools loading a module](/post_images/angular-lazy-loading/lazy-loaded-module-in-dev-tools.gif)
 
 So what changes were made to our app in the `feature/lazy_loaded branch` to lazy load the product and profile modules?
 
 First, let’s take a look at the `app.module.ts` file below. Notice that the `ProductComponent` and the `ProfileComponent` are no longer imported into the root module or included in the `declarations` array. This is because we do not want our app to load them until it needs them. If they were imported here, the product and profile modules and their components and services would be loaded when our app initializes no mater what we do.
 
 ```typescript
-import { BrowserModule } from '@angular/platform-browser'
-import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component'
-import { CoreModule } from './core/core.module'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, BrowserAnimationsModule],
-  providers: [],
-  bootstrap: [AppComponent],
+	declarations: [AppComponent],
+	imports: [BrowserModule, AppRoutingModule, CoreModule, BrowserAnimationsModule],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule {}
 ```
@@ -115,25 +115,25 @@ export class AppModule {}
 Next, let’s take a look at the app-routing.module.ts file below. You will find that the route configurations have changed. Instead of associating the URL with a component to render, the URL is associated with a module to load.
 
 ```typescript
-import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
-import { HomeComponent } from './core/home/home.component'
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './core/home/home.component';
 
 const routes: Routes = [
-  {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule),
-  },
-  {
-    path: 'product',
-    loadChildren: () => import('./product/product.module').then((m) => m.ProductModule),
-  },
-  { path: '', component: HomeComponent, pathMatch: 'full' },
-]
+	{
+		path: 'profile',
+		loadChildren: () => import('./profile/profile.module').then((m) => m.ProfileModule)
+	},
+	{
+		path: 'product',
+		loadChildren: () => import('./product/product.module').then((m) => m.ProductModule)
+	},
+	{ path: '', component: HomeComponent, pathMatch: 'full' }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule]
 })
 export class AppRoutingModule {}
 ```
@@ -152,15 +152,15 @@ Let’s look at an example. If we run the app and navigate to `http://localhost:
 When the profile module is loaded, the router will compare the URL with the child route configurations defined in the `profile-routing.module.ts` file. It understands that these are child routes because when the instance of the `RouterModule` is created and imported, it passes the `routes` array into the `.forChild()` method. As you can see in the gist below, there is only one route configuration, but we could define as many as needed here.
 
 ```typescript
-import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
-import { ProfileComponent } from './profile/profile.component'
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
 
-const routes: Routes = [{ path: '', component: ProfileComponent }]
+const routes: Routes = [{ path: '', component: ProfileComponent }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule]
 })
 export class ProfileRoutingModule {}
 ```

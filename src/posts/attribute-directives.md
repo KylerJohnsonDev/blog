@@ -1,6 +1,6 @@
 ---
 title: A Practical Approach to Angular Attribute Directives
-imageUrl: '/static/roadsigns.webp'
+image: '/post_images/attribute-directives/roadsigns.webp'
 imageAlt: 'Road Signs'
 date: '2019-03-03'
 description: 'Learn what attribute directives are and how you can use them'
@@ -8,7 +8,7 @@ published: true
 tags: ['angular']
 ---
 
-![Road Signs](/static/images/attribute-directives/roadsigns.webp)
+![Road Signs](/post_images/attribute-directives/roadsigns.webp)
 
 ```text
 Angular version: 8.x
@@ -41,13 +41,13 @@ The HTML:
 
 ```html
 <div class="wrapper">
-  <button appDropdown class="dropdown-btn" type="button">Menu</button>
+	<button appDropdown class="dropdown-btn" type="button">Menu</button>
 
-  <div class="dropdown">
-    <a href="https://medium.com/@kylerjohnsondev" class="dropdown-item">Find me on Medium</a>
-    <a href="https://twitter.com/KylerJohnsondev" class="dropdown-item">Find me on Twitter</a>
-    <a href="https://github.com/KylerJohnsondev" class="dropdown-item">Find me on Github</a>
-  </div>
+	<div class="dropdown">
+		<a href="https://medium.com/@kylerjohnsondev" class="dropdown-item">Find me on Medium</a>
+		<a href="https://twitter.com/KylerJohnsondev" class="dropdown-item">Find me on Twitter</a>
+		<a href="https://github.com/KylerJohnsondev" class="dropdown-item">Find me on Github</a>
+	</div>
 </div>
 ```
 
@@ -55,43 +55,43 @@ The CSS:
 
 ```css
 .dropdown-btn {
-  background: #0288d1;
-  border: 1px solid #0288d1;
-  border-radius: 0.25em;
-  color: white;
-  cursor: pointer;
-  font-size: 1.5em;
-  outline: 0;
+	background: #0288d1;
+	border: 1px solid #0288d1;
+	border-radius: 0.25em;
+	color: white;
+	cursor: pointer;
+	font-size: 1.5em;
+	outline: 0;
 }
 
 .dropdown {
-  background-color: #0288d1;
-  border: none;
-  border-radius: 0 0.25em 0.25em 0.25em;
-  display: none;
-  width: 40%;
+	background-color: #0288d1;
+	border: none;
+	border-radius: 0 0.25em 0.25em 0.25em;
+	display: none;
+	width: 40%;
 }
 
 .dropdown-item {
-  color: white;
-  border-bottom: 1px solid white;
-  display: block;
-  padding: 0.5em 0;
-  text-align: center;
-  text-decoration: none;
+	color: white;
+	border-bottom: 1px solid white;
+	display: block;
+	padding: 0.5em 0;
+	text-align: center;
+	text-decoration: none;
 }
 
 .dropdown-item:first-child {
-  border-top: 1px solid white;
-  border-radius: 0 0.25em 0 0;
+	border-top: 1px solid white;
+	border-radius: 0 0.25em 0 0;
 }
 
 .dropdown-item:last-child {
-  border-radius: 0 0 0.25em 0.25em;
+	border-radius: 0 0 0.25em 0.25em;
 }
 
 .dropdown-item:hover {
-  background-color: magenta;
+	background-color: magenta;
 }
 
 /*
@@ -101,11 +101,11 @@ The CSS:
 */
 
 .open {
-  border-radius: 0.25em 0.25em 0 0;
+	border-radius: 0.25em 0.25em 0 0;
 }
 
 .open + .dropdown {
-  display: block;
+	display: block;
 }
 ```
 
@@ -118,19 +118,19 @@ In this section, we will look at a dropdown directive implementation using Eleme
 In this example, this is how our dropdown directive looks:
 
 ```typescript
-import { Directive, ElementRef, HostListener } from '@angular/core'
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appDropdown]',
+	selector: '[appDropdown]'
 })
 export class DropdownDirective {
-  constructor(private elRef: ElementRef) {}
+	constructor(private elRef: ElementRef) {}
 
-  @HostListener('click') toggleDropdown() {
-    const buttonEl = this.elRef.nativeElement
-    const isOpen = buttonEl.classList.contains('open')
-    buttonEl.classList.toggle('open', !isOpen)
-  }
+	@HostListener('click') toggleDropdown() {
+		const buttonEl = this.elRef.nativeElement;
+		const isOpen = buttonEl.classList.contains('open');
+		buttonEl.classList.toggle('open', !isOpen);
+	}
 }
 ```
 
@@ -177,24 +177,24 @@ The [Renderer2](https://angular.io/api/core/Renderer2) API offers a way to bypas
 Let’s take a look at what our `dropdown.directive.ts` file looks like now.
 
 ```typescript
-import { Directive, HostListener, ElementRef, Renderer2 } from '@angular/core'
+import { Directive, HostListener, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appDropdown]',
+	selector: '[appDropdown]'
 })
 export class DropdownDirective {
-  constructor(private elRef: ElementRef, private renderer: Renderer2) {}
+	constructor(private elRef: ElementRef, private renderer: Renderer2) {}
 
-  @HostListener('click') toggleDropdown() {
-    const buttonEl = this.elRef.nativeElement
-    const isOpen = buttonEl.classList.contains('open')
+	@HostListener('click') toggleDropdown() {
+		const buttonEl = this.elRef.nativeElement;
+		const isOpen = buttonEl.classList.contains('open');
 
-    if (isOpen) {
-      this.renderer.removeClass(buttonEl, 'open')
-    } else {
-      this.renderer.addClass(buttonEl, 'open')
-    }
-  }
+		if (isOpen) {
+			this.renderer.removeClass(buttonEl, 'open');
+		} else {
+			this.renderer.addClass(buttonEl, 'open');
+		}
+	}
 }
 ```
 
@@ -213,19 +213,19 @@ The `HostingBinding` decorator allows us to mark a DOM property as a host-bindin
 Let’s take a look at our `dropdown.directive.ts` file now.
 
 ```typescript
-import { Directive, HostBinding, HostListener } from '@angular/core'
+import { Directive, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appDropdown]',
+	selector: '[appDropdown]'
 })
 export class DropdownDirective {
-  constructor() {}
+	constructor() {}
 
-  @HostBinding('class.open') isOpen = false
+	@HostBinding('class.open') isOpen = false;
 
-  @HostListener('click') toggleDropdown() {
-    this.isOpen = !this.isOpen
-  }
+	@HostListener('click') toggleDropdown() {
+		this.isOpen = !this.isOpen;
+	}
 }
 ```
 

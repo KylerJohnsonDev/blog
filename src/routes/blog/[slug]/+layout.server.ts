@@ -14,8 +14,7 @@ export const load: PageServerLoad = async ({ url }) => {
 			return post;
 		})
 		.sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1))
-		.filter((post) => post.published)
-		.slice(0, MAX_POSTS);
+		.filter((post) => post.published);
 
 	const hasMorePosts: boolean = posts.length > MAX_POSTS;
 	const pathSegment = url.pathname.split('/').pop();
@@ -28,5 +27,6 @@ export const load: PageServerLoad = async ({ url }) => {
 		currentPostIndex <= publishedPosts.length - 2
 			? publishedPosts[currentPostIndex + 1]
 			: undefined;
+
 	return { currentPost, prev, next, hasMorePosts } satisfies BlogPostLayoutData;
 };

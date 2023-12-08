@@ -4,11 +4,11 @@ date: '2020-05-14'
 description: 'Examples and explanations of basic reactive patterns with RxJS'
 published: true
 tags: ['angular', 'rxjs']
-imageUrl: '/static/rx-patterns-header-img.webp'
+imageUrl: '/post_images/basic-reactive-patterns/rx-patterns-header-img.webp'
 imageAlt: 'Backlit keyboard - Reactive Patterns header'
 ---
 
-![Keyboard with Purple backlight](/static/images/basic-reactive-patterns/rx-patterns-header-img.webp)
+![Keyboard with Purple backlight](/post_images/basic-reactive-patterns/rx-patterns-header-img.webp)
 
 ```text
 Angular version: 11 or later
