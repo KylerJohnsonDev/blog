@@ -4,11 +4,12 @@ date: '2020-09-17'
 description: "Want to build your Angular app once and deploy anywhere? Learn why compile-time configuration isn't enough and how we can load configuration at run-time."
 published: true
 tags: ['Angular']
+image: '/post_images/build-once-deploy-anywhere/header-image.webp'
+imageAlt: 'Digital artwork featuring a worker building something'
 canonicalUrl: https://indepth.dev/posts/1338/build-your-angular-app-once-deploy-anywhere
 ---
 
-
-![Worker with Toolbox](/static/images/build-once-deploy-anywhere/header-image.webp)
+![Worker with Toolbox](/post_images/build-once-deploy-anywhere/header-image.webp)
 
 Originally posted on InDepth Dev [here](https://indepth.dev/posts/1338/build-your-angular-app-once-deploy-anywhere). Header image by InDepth Dev.
 
@@ -50,7 +51,7 @@ There isn’t much to this step. We’re simply going to add a file named app-co
 
 To achieve this, we need to make an addition to the webpack configuration in the angular.json file. We need to add the path to our config file to the `assets` array in the webpack `build` configuration.
 
-![angular.json](/static/images/build-once-deploy-anywhere/angularjson.png)
+![angular.json](/post_images/build-once-deploy-anywhere/angularjson.png)
 
 ## Building the service
 
@@ -58,23 +59,23 @@ This is a simple service with a private property and two methods — one that se
 
 ```typescript
 @Injectable({
-  providedIn: 'root',
+	providedIn: 'root'
 })
 export class ConfigService {
-  private configuration: AppConfig
+	private configuration: AppConfig;
 
-  constructor(private httpClient: HttpClient) {}
+	constructor(private httpClient: HttpClient) {}
 
-  setConfig(): Promise<AppConfig> {
-    return this.httpClient
-      .get<AppConfig>('./app-config.json')
-      .toPromise()
-      .then((config) => (this.configuration = config))
-  }
+	setConfig(): Promise<AppConfig> {
+		return this.httpClient
+			.get<AppConfig>('./app-config.json')
+			.toPromise()
+			.then((config) => (this.configuration = config));
+	}
 
-  readConfig(): AppConfig {
-    return this.configuration
-  }
+	readConfig(): AppConfig {
+		return this.configuration;
+	}
 }
 ```
 
@@ -86,24 +87,24 @@ With that in place, let’s set up the `APP_INITIALIZER`. According to the docs,
 
 ```typescript
 const appInitializerFn = (configService: ConfigService) => {
-  return () => {
-    return configService.setConfig()
-  }
-}
+	return () => {
+		return configService.setConfig();
+	};
+};
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [
-    ConfigService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appInitializerFn,
-      multi: true,
-      deps: [ConfigService],
-    },
-  ],
-  bootstrap: [AppComponent],
+	declarations: [AppComponent],
+	imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+	providers: [
+		ConfigService,
+		{
+			provide: APP_INITIALIZER,
+			useFactory: appInitializerFn,
+			multi: true,
+			deps: [ConfigService]
+		}
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule {}
 ```
@@ -114,18 +115,18 @@ Now, to ensure that this worked as expected, we can inject our `ConfigService` i
 
 ```typescript
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  config: AppConfig
+	config: AppConfig;
 
-  constructor(private configService: ConfigService) {}
+	constructor(private configService: ConfigService) {}
 
-  ngOnInit(): void {
-    this.config = this.configService.readConfig()
-  }
+	ngOnInit(): void {
+		this.config = this.configService.readConfig();
+	}
 }
 ```
 
