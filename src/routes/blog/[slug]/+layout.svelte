@@ -74,7 +74,7 @@
                     </dd>
                 </dl>
                 <div class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-                    <div class="prose max-w-none pt-10 pb-8 dark:prose-dark"><slot/></div>
+                    <div class="prose max-w-none pb-8 dark:prose-dark"><slot/></div>
                 </div>
                 <footer>
                     <div class="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
