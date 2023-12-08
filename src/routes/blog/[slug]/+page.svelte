@@ -12,6 +12,6 @@
 	$: component = data.component as unknown as C;
 </script>
 
-<PageHead title={data.frontmatter.title} description={data.frontmatter.description} />
+<PageHead {...data.currentPost } ogType="article" />
 
 <svelte:component this={component} />
