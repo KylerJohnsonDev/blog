@@ -6,6 +6,6 @@
 	export let data: PageData;
 </script>
 
-<PageHead title="Kyler Johnson" description="Sr. Principal Software Engineer" />
+<PageHead title="" description="Sr. Principal Software Engineer" />
 
 <BlogList posts={data.posts} hasMorePosts={data.hasMorePosts} />

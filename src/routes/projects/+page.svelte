@@ -1,8 +1,11 @@
 <script lang="ts">
     import Card from "$lib/components/Card.svelte";
+    import PageHead from "$lib/components/PageHead.svelte";
 
     const projectsData: any = [];
 </script>
+
+<PageHead title="Projects" description="Under construction" />
 
 <div class="divide-y divide-gray-200 dark:divide-gray-700">
     <div class="space-y-2 pt-6 pb-8 md:space-y-5">

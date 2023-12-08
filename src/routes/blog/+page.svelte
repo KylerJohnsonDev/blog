@@ -18,7 +18,7 @@
         data.posts.length > 0 && !searchValue ? data.posts : filteredBlogPosts
 </script>
 
-<PageHead title="Kyler Johnson | Blog" description="A blog for developers interested in web technologies, the web platform, and navigating their careers as developers." />
+<PageHead title="Blog" description="A blog for developers interested in web technologies, the web platform, and navigating their careers as developers." />
 
 <div class="divide-y divide-gray-200 dark:divide-gray-700">
     <div class="space-y-2 pt-6 pb-8 md:space-y-5">
