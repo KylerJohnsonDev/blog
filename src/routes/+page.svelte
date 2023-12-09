@@ -6,6 +6,6 @@
 	export let data: PageData;
 </script>
 
-<PageHead title="" description="Sr. Principal Software Engineer" />
+<PageHead title="" description="A former Senior .NET Developer turned front-end engineer, focused on Angular, SvelteKit, and Next.js/React." />
 
 <BlogList posts={data.posts} hasMorePosts={data.hasMorePosts} />
