@@ -87,7 +87,6 @@
 				</li>
 			{/each}
 
-			<Paginator {...data.paginationInformation} />
 		{/if}
 	</ul>
 </div>
