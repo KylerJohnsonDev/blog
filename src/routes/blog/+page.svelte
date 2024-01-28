@@ -2,7 +2,6 @@
 	import { formatDate } from '$lib/utils/formatDate';
 	import Tag from '$lib/components/Tag.svelte';
 	import type { PageData } from './$types';
-	import Paginator from '$lib/components/Paginator.svelte';
 	import PageHead from '$lib/components/PageHead.svelte';
 
 	let searchValue = '';
