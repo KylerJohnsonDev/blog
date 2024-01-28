@@ -5,7 +5,6 @@ import type { BlogPost, PaginationInformation } from '$lib/types';
 import kebabCase from '$lib/utils/kebabCase';
 
 export const load: PageServerLoad = async (data) => {
-	console.log(data);
 	const { url } = data;
 	const tagFromUrl = url.pathname.split('/').pop();
 	const posts = await getFiles();
