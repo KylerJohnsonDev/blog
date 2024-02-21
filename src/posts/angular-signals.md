@@ -8,4 +8,21 @@ published: false
 tags: ['angular']
 ---
 
-Coming soon.
+### Why Signals
+
+### Signals and Change Detection
+
+- should explain how change detection works
+
+### Signals in Action
+
+- show screenshots of Jean Meche's CD demo
+  [https://jeanmeche.github.io/angular-change-detection](Angular Change Detection Demo)
+
+### The smart widget problem
+
+### The Future of Signals in Angular
+
+- show screeenshots from X conversations with Alex and Minko
+
+### Signals vs RxJS is a false Dichotomy
