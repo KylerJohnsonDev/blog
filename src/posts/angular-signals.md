@@ -12,7 +12,7 @@ Note: As of Angular 17.2
 
 ### Why Signals
 
-You've probably seen or heard the assertion that Angular needed a reactive primitive. But what does that actually mean? It means Angular needed an _Angular native_ building block capable of notifying the framework what to re-render and when. A Signal implementation accomplishes this by using a [Directed Acyclic Graph (DAG)](https://www.geeksforgeeks.org/directed-acyclic-graph-in-compiler-design-with-examples/), a tree-like data structure where each node is the computed output of its predecessor. When one value changes, its successors are recalculated. The DAG structure allows for efficient common subexpression elimination, meaning that duplicate outputs can be efficiently eliminated, resulting in faster computations and a smaller memory footprint. It's worth noting that this is an over-simplified explanation, but it's enough to help us establish a mental model for Signals.
+You've probably seen or heard the assertion that Angular needed a reactive primitive. But what does that actually mean? It means Angular needed an _Angular native_ building block capable of tracking and notifying its consumers of change. Angular's Signal implementation accomplishes this by using an [Undirected Acyclic Graph (DAG)](https://www.geeksforgeeks.org/directed-acyclic-graph-in-compiler-design-with-examples/), in which each node is the computed output of its predecessor. When the output of a node changes, all of its descendents are recalculated. While this explanation teeters on the edge of over-simplification, it is enough for us
 
 ### Signals and Change Detection
 
@@ -32,5 +32,7 @@ You've probably seen or heard the assertion that Angular needed a reactive primi
 ### Signals vs RxJS is a false Dichotomy
 
 ### Sources
+
+https://github.com/angular/angular/tree/main/packages/core/primitives/signals
 
 https://dev.to/this-is-learning/making-the-case-for-signals-in-javascript-4c7i
