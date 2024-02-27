@@ -22,12 +22,13 @@ export class UserComponent {
   // reactive node as producer only
   user = signal<User>(undefined);
   // reactive node as a consumer and producer
-  fullname = computed(() => {
+  fullName = computed(() => {
     if(!user()) return '';
     return `${user().firstName} ${user().lastName}`;
   })
   constructor() {
     // an effect is a reactive node as a consumer only
+    // its only use here is to log the value of the user signal when it changes
     effect(() => {
       console.log('user', this.user())
     })
@@ -35,7 +36,7 @@ export class UserComponent {
 }
 ```
 
-Reactive nodes are linked through a bidirected graph so that dependencies are tracked. For example, in the snippet above, both `fullname` and the effect depend on `user`. Assuming `user` and `fullname` signals are referenced in the component template, Angular's Logical View (or LView) will be represented in the dependency graph as a consumer-only reactive node.
+Reactive nodes are linked in a bidirected graph referred to as the dependency graph (or signal graph). This is how Angular knows what should be re-rendered when a signal is updated. For example, in the snippet above, `user` is a producer, `fullName` is a producer and a consumer, and `effect` is a consumer. Both `fullname` and the effect depend on `user`. Assuming, both `user` and `fullName` are referenced in the template, the `LView` of the `UserComponent` will depend on them as well. The `LVieww` is part of the Ivy rendering engine and implements the `ReactiveNode` interface, meaning that it is a consumer as well. See the diagram below for a visual representation of the depdendency graph:
 
 [diagram here]
 
