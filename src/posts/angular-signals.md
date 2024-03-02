@@ -14,35 +14,53 @@ tags: ['angular', 'signals', 'change detection']
 
 You've probably seen or heard the assertion that Angular needed a reactive primitive. But what does that actually mean? It means Angular needed an _Angular native_ implementation for reactivity that could track dependencies, provide synchronous access to the model, and notify Angular about model changes affecting individual components. It turns out, signals were the answer. Let's explore how they work in Angular.
 
-Reactive nodes are the backbone of Angular's signal implementation. They can act as producers, consumers, or both depending on the context. For example, consider the following:
+### How Signals Work
+
+Reactive nodes are the backbone of Angular's signal implementation. They can act as producers, consumers, or both depending on the context. To explore this concept, consider the following snippet:
 
 ```typescript
-@Component({...})
-export class UserComponent {
+@Component({
+  ...
+  template: `
+    @if(product()) {
+      <h1>{{ product.name() }}</h1>
+      <p>Total price: {{ product().price }}</p>
+      <p>Adjusted total after discount: {{ discountedPrice() }} </p>
+    } @else {
+      Please select a product
+    }
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class SelectedProductComponent {
   // reactive node as producer only
-  user = signal<User>(undefined);
+  product = input.Required<Product>();
+  // reactive node as a producer only
+  discountMultiplier = input<number>(0) // ex. .15
   // reactive node as a consumer and producer
-  fullName = computed(() => {
-    if(!user()) return '';
-    return `${user().firstName} ${user().lastName}`;
+  discountedPrice = computed(() => {
+    return (product().price * discountMultiplier()).toFixed();
   })
+
   constructor() {
     // an effect is a reactive node as a consumer only
     // its only use here is to log the value of the user signal when it changes
     effect(() => {
-      console.log('user', this.user())
+      console.log('product', this.product())
     })
   }
 }
 ```
 
-Reactive nodes are linked in a bidirected graph referred to as the dependency graph (or signal graph). This is how Angular knows what should be re-rendered when a signal is updated. For example, in the snippet above, `user` is a producer, `fullName` is a producer and a consumer, and `effect` is a consumer. Both `fullname` and the effect depend on `user`. Assuming, both `user` and `fullName` are referenced in the template, the `LView` of the `UserComponent` will depend on them as well. The `LVieww` is part of the Ivy rendering engine and implements the `ReactiveNode` interface, meaning that it is a consumer as well. See the diagram below for a visual representation of the depdendency graph:
+Reactive nodes are linked in a bidirected graph referred to as the dependency graph (or signal graph). This is how Angular knows what should be re-rendered when a signal is updated. For example, in the snippet above, `product` and `discountMultiplier` are producers, `discountedPrice` is a producer and a consumer, and `effect` is a consumer. Both `discountedPrice` and the effect depend on `product` and `discountedPrice` depends on both `product` and `discountMultiplier`. But there is another consumer that isn't explicity in the component and that's Angular's `Lview`, or "Logical View", which is part of the ivy rendering engine. It's responsible for holding the data the component needs in order to render the template. Because both `product` and `discountedPrice` signals are referenced in the template, the `LView` becomes a consumer.
+
+See the diagram below for a visual representation of the depdendency graph:
 
 [diagram here]
 
 ### Signals and Change Detection
 
-Signals in Angular are an absolute game changer because of what they enable with change detection.
+Signals in Angular are an absolute game changer because of what they enable with change detection. In the example above, the `Lview` acting as a consumer means that Angular knows when the
 
 ### Signals in Action
 
