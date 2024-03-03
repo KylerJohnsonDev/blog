@@ -52,7 +52,7 @@ export class SelectedProductComponent {
 }
 ```
 
-Reactive nodes are linked in a bidirected graph referred to as the dependency graph (or signal graph). This is how Angular knows what should be re-rendered when a signal is updated. For example, in the snippet above, `product` and `discountMultiplier` are producers, `discountedPrice` is a producer and a consumer, and `effect` is a consumer. Both `discountedPrice` and the effect depend on `product` and `discountedPrice` depends on both `product` and `discountMultiplier`. But there is another consumer that isn't explicity in the component and that's Angular's `Lview`, or "Logical View", which is part of the ivy rendering engine. It's responsible for holding the data the component needs in order to render the template. Because both `product` and `discountedPrice` signals are referenced in the template, the `LView` becomes a consumer.
+Reactive nodes are linked in a bidirected graph referred to as the dependency graph (or signal graph). This is how Angular knows what should be re-rendered when a signal is updated. For example, in the snippet above, `product` and `discountMultiplier` are producers, `discountedPrice` is a producer and a consumer, and `effect` is a consumer. Both `discountedPrice` and the effect depend on `product` and `discountedPrice` depends on both `product` and `discountMultiplier`. But there is another consumer that isn't explicity in the component and that's Angular's `Lview`, or "Logical View", which is part of the ivy rendering engine. It's responsible for holding references to the data the component needs in order to render the template. Because both `product` and `discountedPrice` signals are referenced in the template, the `LView` becomes a consumer on the graph.
 
 See the diagram below for a visual representation of the depdendency graph:
 
@@ -60,7 +60,17 @@ See the diagram below for a visual representation of the depdendency graph:
 
 ### Signals and Change Detection
 
-Signals in Angular are an absolute game changer because of what they enable with change detection. In the example above, the `Lview` acting as a consumer means that Angular knows when the
+Signals in Angular are an absolute game changer because of what they enable with change detection. In the example above, the `Lview` of the `SelectedProductComponent` is acting as a consumer, which means Angular knows precisely which components need to be rerendered when a signal is updated.
+
+You might be thinking _'this seems logical. So What's the big deal?'_, right? To answer that question, we need take a look at how change detection worked (at least at a high level) in Angular prior to Signals. 
+
+Before signals, Angular had no way of tracking which components needed to be updated as a result of a data change. Angular's change detection algorithm would "dirty check" the entire component tree looking for any components containing properties that have new references in memory. Any such components would be marked as "dirty" and would get rerendered on the next cycle. The `OnPush` change detection strategy improved that model by only checking input bindings, but Angular still has to dirty check the entire component tree. Even still, when an `OnPush` component is marked "dirty", every component above it in the component tree is marked "dirty" because Angular doesn't know which components depended on the data that changed.
+
+Signals are the reactive primitive Angular needed to change all of that. With the `LView` of any components depending on signals tracked on the dependency graph, Angular knows exactly which components need to be rerendered. Future versions of Angular will not have to dirty check the entire component tree!
+
+So that's great for future Angular versions, but why is everyone so hyped about signals right now? Excellent question. Let's explore. 
+
+Earlier, I explained that even when `OnPush` components are rerendered, every component above it in the component tree is rerendered. Signals change that. When the value of signal changes, only components whose template depends on it are rerendered. This solves what I like to call The Smart Widget Problem.
 
 ### Signals in Action
 
