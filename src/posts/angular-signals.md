@@ -70,9 +70,7 @@ Signals are the reactive primitive Angular needed to change all of that. With th
 
 So that's great for future Angular versions, but why is everyone so hyped about signals right now? Excellent question. Let's explore. 
 
-Earlier, I explained that even when `OnPush` components are rerendered, every component above it in the component tree is rerendered. Signals change that. When the value of signal changes, only components whose template depends on it are rerendered. This solves what I like to call The Smart Widget Problem.
-
-### Signals in Action
+Earlier, I explained that even when an `OnPush` component is rerendered, every component above it in the component tree is rerendered. Signals change that. When the value of a signal changes, only components whose template depends on it are rerendered. This solves what I like to call The Smart Widget Problem.
 
 - show screenshots of Jean Meche's CD demo
   [https://jeanmeche.github.io/angular-change-detection](Angular Change Detection Demo)
