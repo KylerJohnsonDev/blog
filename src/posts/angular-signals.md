@@ -77,6 +77,18 @@ Earlier, I explained that even when an `OnPush` component is rerendered, every c
 
 ### The smart widget problem
 
+Let's say we have a complex dashboard with many widgets containing graphs, charts, and other things of that nature. From a architecture/maintainability perspective, it makes sense for each widget to maintain its own state; however, this has always come with a performance cost in Angular. This is because even when all of those widgets and their sub-components use the `OnPush` change detection strategy, when any of them are marked dirty, all components above them in that branch of the component tree are marked dirty, which leads to unnecessary rerenders. If you have a complex, data-heavy UI, the performance hit could be significant.
+
+In order to keep this architecture and optimize for change detection, we have two options:
+
+1. Turn off automatic change detection in all of our widget components by injecting`ChangeDetectorRef` and calling `detach()` in the constructor. Then manually trigger change detection when needed. This has the potential to allow for granular change detection, but at a cost. This is obviously a lot of work, it can be tedious, and if you're not careful, you can end up with less optimal change detection than when you'd have by default. 
+
+2. Keep automatic change detection, but have a massive top-level component responsive for managing the state for all of the widgets on the screen. In this architecture, all widget components and sub-components use the `OnPush` change detection strategy so they only rerender when their input bindings change. In my opinion, this is better than the first option, but its not without its own disadvantages. The top-level component often grows quite large and untenable, differentiating between similar types of state for each widget (like loading states) can be confusing, this approach often results in "prop drilling" (or passing state down multiple levels), and state/fetch logic living outside of the widget that depends on it just makes maintenance, onboarding, and consumption more difficult to grok.
+
+### Signals Solve the Smart Widget Problem
+
+
+
 ### The Future of Signals in Angular
 
 - show screeenshots from X conversations with Alex and Minko
