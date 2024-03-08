@@ -8,8 +8,6 @@ published: true
 tags: ['angular', 'signals', 'change detection']
 ---
 
-`Angular v17.2`
-
 ### Why Signals
 
 You've probably seen or heard the assertion that Angular needed a reactive primitive. But what does that actually mean? It means Angular needed an _Angular native_ implementation for reactivity that could track dependencies, provide synchronous access to the model, and notify Angular about model changes affecting individual components. It turns out, signals were the answer. Let's explore how they work in Angular.
@@ -81,7 +79,7 @@ Let's say we have a complex dashboard with many widgets containing graphs, chart
 
 In order to keep this architecture and optimize for change detection, we have two options:
 
-1. Turn off automatic change detection in all of our widget components by injecting`ChangeDetectorRef` and calling `detach()` in the constructor. Then manually trigger change detection when needed. This has the potential to allow for granular change detection, but at a cost. This is obviously a lot of work, it can be tedious, and if you're not careful, you can end up with less optimal change detection than when you'd have by default.
+1. Turn off automatic change detection in all of our widget components by injecting`ChangeDetectorRef` and calling `detach()` in the constructor. Then manually trigger change detection when needed. This has the potential to allow for granular change detection, but at a cost. This is obviously a lot of work, it can be tedious, and if you're not careful, you can end up with less optimal change detection than you'd have by default.
 
 2. Keep automatic change detection, but have a massive top-level component responsive for managing the state for all of the widgets on the screen. In this architecture, all widget components and sub-components use the `OnPush` change detection strategy so they only rerender when their input bindings change. In my opinion, this is better than the first option, but its not without its own disadvantages. The top-level component often grows quite large and untenable, differentiating between similar types of state for each widget (like loading states) can be confusing, this approach often results in "prop drilling" (or passing state down multiple levels), and state/fetch logic living outside of the widget that depends on it just makes maintenance, onboarding, and consumption more difficult to grok.
 
