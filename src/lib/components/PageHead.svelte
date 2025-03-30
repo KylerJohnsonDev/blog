@@ -6,13 +6,13 @@
 	export let description: string;
 	export let imageUrl: string;
 	export let imageAlt: string;
-	export let defaultImageAlt = 'Open Graph image that introduces Kyler Johnson, a Sr. Principal Software Engineer';
-	export let defaultImage = `${$page.url.origin}/kyler_johnson_dev.png`
 	export let canonicalUrl = $page.url.href;
 	export let ogType: 'website' | 'article' = 'website'
 	export let date = new Date().toISOString();
 	export let tags: string[] = [];
-
+	
+	const defaultImageAlt = 'Image card that introduces Kyler Johnson, a Sr. Principal Software Engineer';
+	const defaultImage = `${$page.url.origin}/kyler_johnson_dev.png`
 	const name = 'Kyler Johnson';
 	const jobTitle = 'Sr. Principal Software Engineer'
 	const defaultTitle = `${name} | ${jobTitle}`;
