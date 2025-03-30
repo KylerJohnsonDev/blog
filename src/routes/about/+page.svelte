@@ -27,12 +27,14 @@
                     srcset={portrait}></span>
                 <h3 class="pt-4 pb-2 text-2xl font-bold leading-8 tracking-tight">Kyler Johnson</h3>
                 <div class="text-gray-500 dark:text-gray-400">Senior Principal Software Engineer</div>
-                <div class="text-gray-500 dark:text-gray-400">Secureworks</div>
+                <div class="text-gray-500 dark:text-gray-400">Sophos</div>
             </div>
             <div class="prose max-w-none pt-8 pb-8 dark:prose-dark xl:col-span-2">
                 <p>
-                    Hello there! I am Kyler Johnson, a former senior back-end .NET developer currently focused on front-end development, specializing in Angular, Sveltekit, and Next.js/React. Currently working as a Senior Principal UI Engineer, I have years of experience across the stack building and maintaining scalable, event-driven SaaS products at an enterprise scale.
+                    Hello there! I am Kyler Johnson, A product-minded developer with 10 years of experience delivering and maintaining enterprise software that fills the sales pipeline and boosts customer retention. I understand how to strike the balance between shipping features quickly and maintaining a high-quality code base. 
                 </p>
+
+                <p>Specializing in C# .NET, Angular, and Node.js technologies, I build and maintain high quality, UX-oriented web applications at an enterprise scale. I enjoy doing everything from data modeling and building event driven, cloud-native systems to developing intuitive, aesthetic user interfaces.</p>
 
                 <p>
                     I absolutely love what I do and I am enthralled by the challenges of solving real-world problems with technology. Seeing myself as a Software Craftsman, I have an insatiable appetite for learning and I am always looking for ways to improve my craft and share my knowledge.
