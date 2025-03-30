@@ -4,6 +4,7 @@ date: '2023-10-24'
 description: 'Create a reusable pollUntil operator to poll HTTP endpoints with Angular and RxJS'
 published: true
 tags: ['angular', 'rxjs']
+ogType: 'article'
 ---
 
 ### The Context

@@ -4,6 +4,7 @@ date: '2022-11-11'
 description: "New APIs are availabe to make your NgRx implementation more readable with far less code. Let's refactor an existing feature store using these new APIs to see the difference!"
 published: true
 tags: ['angular', 'ngrx']
+ogType: 'article'
 ---
 
 ## Refactoring NgRx in 2022

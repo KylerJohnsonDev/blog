@@ -4,6 +4,7 @@ date: '2023-01-07'
 description: 'Learn how to set VS Code up to leverage prettier and ESLint to autoformat TypeScript code, auto-fix "fixable" problems, and auto-organize imports on file save.'
 published: true
 tags: ['VS Code', 'TypeScript', 'Prettier', 'ESLint']
+ogType: 'article'
 ---
 
 In this article, I walk you through how to set VS Code up to leverage prettier and ESLint to autoformat TypeScript code, auto-fix "fixable" problems, and auto-organize imports on file save (including auto-removal of unused imports).

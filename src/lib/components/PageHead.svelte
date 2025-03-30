@@ -4,8 +4,10 @@
 
 	export let title: string;
 	export let description: string;
-	export let image = `${$page.url.origin}/kyler_johnson_dev.png`
-	export let imageAlt = 'Open Graph image that introduces Kyler Johnson, a Sr. Principal Software Engineer';
+	export let imageUrl: string;
+	export let imageAlt: string;
+	export let defaultImageAlt = 'Open Graph image that introduces Kyler Johnson, a Sr. Principal Software Engineer';
+	export let defaultImage = `${$page.url.origin}/kyler_johnson_dev.png`
 	export let canonicalUrl = $page.url.href;
 	export let ogType: 'website' | 'article' = 'website'
 	export let date = new Date().toISOString();
@@ -15,15 +17,17 @@
 	const jobTitle = 'Sr. Principal Software Engineer'
 	const defaultTitle = `${name} | ${jobTitle}`;
 	const formattedTitle = title ? `${title} | ${name}` : defaultTitle;
+	const ogImage = imageUrl ? `${$page.url.origin}${imageUrl}` : defaultImage;
+	const ogImageAlt = ogImage === defaultImage ? defaultImageAlt : imageAlt;
 </script>
 
 <svelte:head>
 	<title>{formattedTitle}</title>
 
 	<meta property="og:site_name" content={formattedTitle} />
-	<meta property="og:title" content={title} />
-	<meta property="og:image" content={image} />
-	<meta property="og:image:alt" content={imageAlt} />
+	<meta property="og:title" content={formattedTitle} />
+	<meta property="og:image" content={ogImage} />
+	<meta property="og:image:alt" content={ogImageAlt} />
 	<meta property="og:description" content={description} />
 	<meta property="og:author" content={name} />
 	<meta name="robots" content="follow, index" />
@@ -41,11 +45,11 @@
 			{/each}
 		{/if}
 	{ /if }
-	<meta name="twitter:card" content={image} />
+	<meta name="twitter:card" content={ogImage} />
 	<meta name="twitter:site" content={siteMetadata.twitter} />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
-	<meta name="twitter:image" content={image} />
+	<meta name="twitter:image" content={ogImage} />
 	<link
 		rel="canonical"
 		href={canonicalUrl}

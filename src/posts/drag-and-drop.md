@@ -4,8 +4,9 @@ date: '2019-02-07'
 description: 'Leverage Angular Material CDK to implement the drag & drop feature in your Angular app.'
 published: true
 tags: ['angular']
-image: '/post_images/drag-and-drop/ng-drag-and-drop-header.webp'
+imageUrl: '/post_images/drag-and-drop/ng-drag-and-drop-header.webp'
 imageAlt: '.gif of drag and drop app '
+ogType: 'article'
 ---
 
 ```text

@@ -4,9 +4,10 @@ date: '2020-09-17'
 description: "Want to build your Angular app once and deploy anywhere? Learn why compile-time configuration isn't enough and how we can load configuration at run-time."
 published: true
 tags: ['Angular']
-image: '/post_images/build-once-deploy-anywhere/header-image.webp'
+imageUrl: '/post_images/build-once-deploy-anywhere/header-image.webp'
 imageAlt: 'Digital artwork featuring a worker building something'
 canonicalUrl: https://indepth.dev/posts/1338/build-your-angular-app-once-deploy-anywhere
+ogType: 'article'
 ---
 
 ![Worker with Toolbox](/post_images/build-once-deploy-anywhere/header-image.webp)

@@ -1,11 +1,12 @@
 ---
 title: A Practical Approach to Angular Attribute Directives
-image: '/post_images/attribute-directives/roadsigns.webp'
+imageUrl: '/post_images/attribute-directives/roadsigns.webp'
 imageAlt: 'Road Signs'
 date: '2019-03-03'
 description: 'Learn what attribute directives are and how you can use them'
 published: true
 tags: ['angular']
+ogType: 'article'
 ---
 
 ![Road Signs](/post_images/attribute-directives/roadsigns.webp)

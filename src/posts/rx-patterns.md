@@ -6,6 +6,7 @@ published: true
 tags: ['angular', 'rxjs']
 imageUrl: '/post_images/basic-reactive-patterns/rx-patterns-header-img.webp'
 imageAlt: 'Backlit keyboard - Reactive Patterns header'
+ogType: 'article'
 ---
 
 ![Keyboard with Purple backlight](/post_images/basic-reactive-patterns/rx-patterns-header-img.webp)
