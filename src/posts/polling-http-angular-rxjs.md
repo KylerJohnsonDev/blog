@@ -5,7 +5,11 @@ description: 'Learn how to implement polling indefinitely, start/stop polling, a
 published: true
 tags: ['angular', 'rxjs']
 ogType: 'article'
+imageUrl: '/post_images/polling-http-angular-rxjs/header-image.png'
+imageAlt: 'Screenshot of custom RxJS operator for polling'
 ---
+
+![Custom RxJS operator for polling](/post_images/polling-http-angular-rxjs/header-image.png)
 
 ```
 Angular 19.2.5
