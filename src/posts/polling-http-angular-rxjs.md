@@ -27,7 +27,7 @@ In this example, we will create a custom RxJS operator that will poll an HTTP en
 First, let's take a look at the service:
 
 ```typescript
-// --> src/app/examples/random-number-ex1.service.ts
+// --> src/app/examples/example-one/random-number-ex1.service.ts
 @Injectable({
 	providedIn: 'root'
 })
@@ -59,6 +59,8 @@ In the service above, we have the `fetchRandomNumber` method that fetches a rand
 Now that you've see the service, let's take a look at the `pollEveryNMilliseconds` operator:
 
 ```typescript
+// --> src/app/examples/poll-every-n-milliseconds.ts
+
 export function pollEveryNMilliseconds<T>(pollIntervalMilliseconds: number) {
 	return (source$: Observable<T>) =>
 		timer(0, pollIntervalMilliseconds).pipe(
@@ -80,7 +82,7 @@ In this example, the polling will start when a user clicks the "start polling" b
 As before, let's go ahead and take a look at our service:
 
 ```typescript
-// --> src/app/examples/random-number-ex2.service.ts
+// --> src/app/examples/example-two/random-number-ex2.service.ts
 
 @Injectable({
   providedIn: 'root'
@@ -153,6 +155,8 @@ Any use case where you want to start and stop polling based on user interaction.
 Again, let's start by taking a look at the service:
 
 ```typescript
+// --> src/app/examples/example-three/random-number-ex3.service.ts
+
 @Injectable({
   providedIn: 'root'
 })
@@ -207,6 +211,8 @@ In this case, we want the polling to stop when the random number is greater than
 So how does this work? Let's take a look at the operator:
 
 ```typescript
+// --> src/app/examples/poll-every-n-milliseconds-until.ts
+
 export function pollEveryNMillisecondsUntil<T>(pollInterval: number, responsePredicateFn: (response: T) => boolean) {
   return (source$: Observable<T>) =>
     timer(0, pollInterval)
