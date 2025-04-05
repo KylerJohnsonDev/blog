@@ -12,13 +12,6 @@ const config = defineConfig({
 	},
 
 	remarkPlugins: [
-		[
-			remarkGithub,
-			{
-				// TODO: Replace with your own repository
-				repository: 'https://github.com/mvasigh/sveltekit-mdsvex-blog.git'
-			}
-		],
 		remarkAbbr
 	],
 	rehypePlugins: [
