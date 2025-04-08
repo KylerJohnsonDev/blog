@@ -1,6 +1,6 @@
 ---
 title: 'Polling HTTP in Angular with RxJS'
-date: '2023-10-24'
+date: '2025-04-08'
 description: 'Create a reusable pollUntil operator to poll HTTP endpoints with Angular and RxJS'
 published: true
 tags: ['angular', 'rxjs']
