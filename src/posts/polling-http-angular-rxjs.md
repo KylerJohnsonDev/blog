@@ -5,7 +5,7 @@ description: 'Learn how to implement polling indefinitely, start/stop polling, a
 published: true
 tags: ['angular', 'rxjs']
 ogType: 'article'
-imageUrl: '/post_images/polling-http-angular-rxjs.png'
+imageUrl: '/post_images/polling-http-angular-rxjs/header-image.png'
 imageAlt: 'Screenshot of custom RxJS operator'
 ---
 
